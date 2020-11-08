@@ -10,7 +10,7 @@ Adjectives and Animals borrowed from https://github.com/moparisthebest/adjective
 
 ``` racket
 (require cute-id)
-(println (generate-cute-id))
+(println (cute-id))
 ;; => Abaft-Blondish-Ocelot
 ```
 
