@@ -46,7 +46,6 @@
 
 (module+ main
   (require racket/cmdline)
-  (define who (box "world"))
   (command-line
     #:program "generate-cute-id"
     #:args ()
