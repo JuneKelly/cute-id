@@ -4,6 +4,7 @@
          racket/runtime-path
          racket/contract
          racket/string
+         racket/list
          racket/random)
 
 (provide (contract-out
@@ -33,8 +34,14 @@
 
 (module+ test
   (require rackunit)
-  ;; TODO: real tests
-  (check-equal? (+ 2 2) 4))
+
+  (define test-ids
+    (for/list ([i (range 1000)])
+      (generate-cute-id)))
+
+  (for ([s test-ids])
+    (check-pred string? s)
+    (check-pred non-empty-string? s)))
 
 (module+ main
   (require racket/cmdline)
