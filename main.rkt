@@ -46,7 +46,8 @@
   (for ([s (for/list ([_i (range 1000)])
              (generate-cute-id))])
     (check-pred string? s)
-    (check-pred non-empty-string? s))
+    (check-pred non-empty-string? s)
+    (check-not-false (regexp-match #rx"^[a-zA-Z]+-[a-zA-Z]+-[a-zA-Z]+$" s)))
 
   (check-pred (lambda (s) (string-contains? s "-"))
               (generate-cute-id))
