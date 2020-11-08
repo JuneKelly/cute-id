@@ -2,9 +2,12 @@
 
 (require racket/port
          racket/runtime-path
+         racket/contract
+         racket/string
          racket/random)
 
-(provide generate-cute-id)
+(provide (contract-out
+          [generate-cute-id (and/c string? non-empty-string?)]))
 
 (define-runtime-path animal-data "data/animals.txt")
 (define-runtime-path adjectives-data "data/adjectives.txt")
