@@ -8,7 +8,9 @@
          racket/random)
 
 (provide (contract-out
-          [generate-cute-id (-> (and/c string? non-empty-string?))]))
+          [generate-cute-id (->* ()
+                                 (#:separator string?)
+                                 (and/c string? non-empty-string?))]))
 
 (define-runtime-path animal-data "data/animals.txt")
 (define-runtime-path adjectives-data "data/adjectives.txt")
@@ -20,16 +22,15 @@
   (call-with-input-file adjectives-data port->lines))
 
 ;; TODO: documentation
-(define (generate-cute-id)
+(define (generate-cute-id #:separator [separator "-"])
   (let ([adj1 (random-ref adjectives)]
-         [adj2 (random-ref adjectives)]
-         [animal (random-ref animals)]
-         [sep "-"])
+        [adj2 (random-ref adjectives)]
+        [animal (random-ref animals)])
     (format "~a~a~a~a~a"
             adj1
-            sep
+            separator
             adj2
-            sep
+            separator
             animal)))
 
 (module+ test
