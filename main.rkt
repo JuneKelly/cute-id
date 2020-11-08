@@ -36,13 +36,16 @@
 (module+ test
   (require rackunit)
 
-  (define test-ids
-    (for/list ([i (range 1000)])
-      (generate-cute-id)))
-
-  (for ([s test-ids])
+  (for ([s (for/list ([_i (range 1000)])
+             (generate-cute-id))])
     (check-pred string? s)
-    (check-pred non-empty-string? s)))
+    (check-pred non-empty-string? s))
+
+  (check-pred (lambda (s) (string-contains? s "-"))
+              (generate-cute-id))
+
+  (check-pred (lambda (s) (string-contains? s ":"))
+              (generate-cute-id #:separator ":")))
 
 (module+ main
   (require racket/cmdline)
