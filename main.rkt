@@ -26,7 +26,6 @@
 
 ;; TODO:
 ;;   - documentation
-;;   - make a generator, for testing
 
 (define (make-cute-id-fn
          adjective-list
