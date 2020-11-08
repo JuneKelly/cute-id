@@ -3,7 +3,7 @@ cute-id
 
 Cute, Random IDs in Racket, such as `"Abaft-Blondish-Ocelot"`.
 
-Adjectives and Animals borrowed from https://github.com/a-type/adjective-adjective-animal.
+Adjectives and Animals borrowed from https://github.com/moparisthebest/adjective-adjective-animal.
 
 # Example
 
