@@ -28,7 +28,9 @@
 (define (random-animal)
   (random-ref animals))
 
-;; TODO: documentation
+;; TODO:
+;;   - documentation
+;;   - make a generator, for testing
 (define (generate-cute-id #:separator [separator "-"])
   (let ([adj1 (random-adjective)]
         [adj2 (random-adjective)]
